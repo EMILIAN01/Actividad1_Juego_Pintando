@@ -38,17 +38,41 @@ def square(start, end):
 
 def circle(start, end):
     """Draw circle from start to end."""
-    pass  # TODO
+    up()
+    goto(start.x, start.y)
+    down()
+    begin_fill()
 
+    for count in range(360):
+        forward((end.x - start.x)/20)
+        left(1)
 
+    end_fill()
+
+    
 def rectangle(start, end):
     """Draw rectangle from start to end."""
     pass  # TODO
 
 
 def triangle(start, end):
-    """Draw triangle from start to end."""
-    pass  # TODO
+    import math
+
+def triangle(start, end):
+    """Draw equilateral triangle from start to end."""
+    length = (end - start).mag()
+    height = math.sqrt(3) / 2 * length
+    midpoint = (start + end) / 2
+    angle = math.atan2(end.y - start.y, end.x - start.x)
+    up()
+    goto(midpoint.x, midpoint.y - height / 2)
+    setheading(math.degrees(angle) + 60)
+    down()
+    for _ in range(3):
+        forward(length)
+        left(120)
+    up()
+
 
 
 def tap(x, y):
@@ -79,6 +103,7 @@ onkey(lambda: color('white'), 'W')
 onkey(lambda: color('green'), 'G')
 onkey(lambda: color('blue'), 'B')
 onkey(lambda: color('red'), 'R')
+onkey(lambda: color('pink'), 'P')
 onkey(lambda: store('shape', line), 'l')
 onkey(lambda: store('shape', square), 's')
 onkey(lambda: store('shape', circle), 'c')

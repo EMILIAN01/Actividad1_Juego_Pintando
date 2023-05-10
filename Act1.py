@@ -36,32 +36,15 @@ def square(start, end):
     end_fill()
 
 
-def circle(start, end):
+def circulo(start, end):
     """Draw circle from start to end."""
-    radius = distance(start, end)
+    radius = abs(end - start)
     up()
     goto(start.x, start.y - radius)
     down()
     begin_fill()
     circle(radius)
     end_fill()
-    
-def rectangle(start, end):
-    # Ir al primer punto
-    up()
-    goto(start.x, start.y)
-    down()
-
-    # Dibujar el rectángulo
-    begin_fill()
-    for _ in range(2):
-        forward(end.x - start.x)
-        left(90)
-        forward(end.y - start.y)
-        left(90)
-    end_fill()
-
-
 
 def triangle(start, end):
     """Draw equilateral triangle from start to end."""
@@ -98,7 +81,7 @@ onkey(lambda: color('red'), 'R')
 onkey(lambda: color('pink'), 'P')
 onkey(lambda: store('shape', line), 'l')
 onkey(lambda: store('shape', square), 's')
-onkey(lambda: store('shape', circle), 'c')
+onkey(lambda: store('shape', circulo), 'c')
 onkey(lambda: store('shape', rectangle), 'r')
 onkey(lambda: store('shape', triangle), 't')
 done()

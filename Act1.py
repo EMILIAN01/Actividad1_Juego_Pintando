@@ -38,17 +38,13 @@ def square(start, end):
 
 def circle(start, end):
     """Draw circle from start to end."""
+    radius = distance(start, end)
     up()
-    goto(start.x, start.y)
+    goto(start.x, start.y - radius)
     down()
     begin_fill()
-
-    for count in range(360):
-        forward((end.x - start.x)/20)
-        left(1)
-
+    circle(radius)
     end_fill()
-
     
 def rectangle(start, end):
     # Ir al primer punto
@@ -65,24 +61,25 @@ def rectangle(start, end):
         left(90)
     end_fill()
 
+
+
 def triangle(start, end):
-   
-    # Ir al primer punto
-    begin_fill()
+    import math
+
+def triangle(start, end):
+    """Draw equilateral triangle from start to end."""
+    length = (end - start).mag()
+    height = math.sqrt(3) / 2 * length
+    midpoint = (start + end) / 2
+    angle = math.atan2(end.y - start.y, end.x - start.x)
     up()
-    goto(start.x, start.y)
+    goto(midpoint.x, midpoint.y - height / 2)
+    setheading(math.degrees(angle) + 60)
     down()
-
-    # Ir al segundo punto
-    goto(end.x, end.y)
-
-    # Ir al tercer punto
-    third = vector(start.x, end.y)
-    goto(third.x, third.y)
-
-    # Volver al primer punto para cerrar el triángulo
-    goto(start.x, start.y)
-    end_fill()
+    for _ in range(3):
+        forward(length)
+        left(120)
+    up()
 
 
 

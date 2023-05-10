@@ -36,15 +36,23 @@ def square(start, end):
     end_fill()
 
 
-def circle(start, end):
+def circles(start, end):
     """Draw circle from start to end."""
-    radius = distance(start, end)
+    radio = distance(start, end)
     up()
-    goto(start.x, start.y - radius)
+    goto(start.x, start.y - radio)
     down()
     begin_fill()
-    circle(radius)
+    circle(radio)
     end_fill()
+
+    radio = start.x-start.y
+    up()
+    goto(start.x)
+    begin_fill()
+    circle(radio)
+    end_fill()
+
     
 def rectangle(start, end):
     # Ir al primer punto

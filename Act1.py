@@ -65,25 +65,24 @@ def rectangle(start, end):
         left(90)
     end_fill()
 
-
-
 def triangle(start, end):
-    import math
-
-def triangle(start, end):
-    """Draw equilateral triangle from start to end."""
-    length = (end - start).mag()
-    height = math.sqrt(3) / 2 * length
-    midpoint = (start + end) / 2
-    angle = math.atan2(end.y - start.y, end.x - start.x)
+   
+    # Ir al primer punto
+    begin_fill()
     up()
-    goto(midpoint.x, midpoint.y - height / 2)
-    setheading(math.degrees(angle) + 60)
+    goto(start.x, start.y)
     down()
-    for _ in range(3):
-        forward(length)
-        left(120)
-    up()
+
+    # Ir al segundo punto
+    goto(end.x, end.y)
+
+    # Ir al tercer punto
+    third = vector(start.x, end.y)
+    goto(third.x, third.y)
+
+    # Volver al primer punto para cerrar el triángulo
+    goto(start.x, start.y)
+    end_fill()
 
 
 

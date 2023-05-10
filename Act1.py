@@ -46,6 +46,21 @@ def circulo(start, end):
     circle(radius)
     end_fill()
 
+def rectangle(start, end):
+    # Ir al primer punto
+    up()
+    goto(start.x, start.y)
+    down()
+
+    # Dibujar el rectángulo
+    begin_fill()
+    for _ in range(2):
+        forward(end.x - start.x)
+        left(90)
+        forward(end.y - start.y)
+        left(90)
+    end_fill()
+
 def triangle(start, end):
     """Draw equilateral triangle from start to end."""
 

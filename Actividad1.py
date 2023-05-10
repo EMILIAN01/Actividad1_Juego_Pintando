@@ -48,13 +48,39 @@ def circulo(start, end):
 
 def rectangle(start, end):
     """Draw rectangle from start to end."""
-    pass  # TODO
+    # Ir al primer punto
+    up()
+    goto(start.x, start.y)
+    down()
+
+    # Dibujar el rectángulo
+    begin_fill()
+    for _ in range(2):
+        forward(end.x - start.x)
+        left(90)
+        forward(end.y - start.y)
+        left(90)
+    end_fill()
 
 
 def triangle(start, end):
     """Draw triangle from start to end."""
-    pass  # TODO
+    # Ir al primer punto
+    begin_fill()
+    up()
+    goto(start.x, start.y)
+    down()
 
+    # Ir al segundo punto
+    goto(end.x, end.y)
+
+    # Ir al tercer punto
+    third = vector(start.x, end.y)
+    goto(third.x, third.y)
+
+    # Volver al primer punto para cerrar el triángulo
+    goto(start.x, start.y)
+    end_fill()
 
 def tap(x, y):
     """Store starting point or draw shape."""

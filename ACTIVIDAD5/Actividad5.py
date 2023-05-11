@@ -56,7 +56,7 @@ def tap(x, y):
     else:
         hide[spot] = False
         hide[mark] = False
-        state['mark'] = None
+        state['mark']=None
 
 
 def draw():

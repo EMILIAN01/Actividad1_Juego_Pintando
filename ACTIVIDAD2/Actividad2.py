@@ -5,7 +5,6 @@ from freegames import square, vector
 food = vector(0, 0)
 snake = [vector(10, 0)]
 aim = vector(0, -10)
-#definicon de colores
 colors = ['blue', 'orange', 'purple', 'green', 'yellow']
 snake_color = colors[randrange(0, len(colors))] # Escoge un color al azar de la lista
 food_color = colors[randrange(0, len(colors))] # Escoge otro color al azar de la lista
@@ -28,6 +27,17 @@ def change(x, y):
 def inside(head):
     """Return True if head inside boundaries."""
     return -200 < head.x < 190 and -200 < head.y < 190
+
+def move_food():
+    """Move food one step at a time."""
+    newfood = food.copy()
+    moves = [vector(10, 0), vector(-10, 0), vector(0, 10), vector(0, -10)]
+    move = moves[randrange(0, len(moves))]
+
+    newfood.move(move)
+    if inside(newfood):
+        food.move(move)
+    ontimer(move_food, 200)
 
 def move():
     """Move snake forward one segment."""
@@ -70,4 +80,5 @@ onkey(lambda: change(-10, 0), 'Left')
 onkey(lambda: change(0, 10), 'Up')
 onkey(lambda: change(0, -10), 'Down')
 move()
+move_food()
 done()

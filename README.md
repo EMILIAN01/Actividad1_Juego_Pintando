@@ -1,1 +1,0 @@
-# Actividad1_Juego_Pintando

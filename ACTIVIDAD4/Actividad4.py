@@ -70,6 +70,7 @@ def move():
 
     draw()
 
+
     ontimer(move, 15)
 
 

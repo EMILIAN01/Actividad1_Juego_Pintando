@@ -58,6 +58,15 @@ def tap(x, y):
         hide[mark] = False
         state['mark']=None
 
+    #Se verifica que si todas las casillas están visibles, 
+    if all (not box for box in hide):
+        clear()
+        up()
+        goto(0,0)
+        color('black')
+        write("GAME OVER. Felicidades!!!", align='center', font=('Arial', 30, 'normal'))        
+        input("Presiona Enter para reiniciar...")
+
 
 def draw():
     """Draw image and tiles."""
@@ -78,7 +87,7 @@ def draw():
         up()
         goto(x + 25, y)
         color('black')
-        write(tiles[mark], font=('Arial', 30, 'normal'))
+        write(tiles[mark], align='center', font=('Arial', 30, 'normal'))
 
     # Mostramos el conteo en la pantalla
     up()

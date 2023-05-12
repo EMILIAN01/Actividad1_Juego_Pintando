@@ -8,20 +8,21 @@ Exercises:
 4. Center single-digit tile.
 5. Use letters instead of tiles.
 """
-
+#Importa librerías
 from random import *
 from turtle import *
 from time import time
 from freegames import path
 
-
-car = path('car.gif')
-tiles = list(range(32)) * 2
+car = path('car.gif') #Carga la imagen del carro
+#Se definen variables globales
+tiles = ["Estados Unidos","México","Canadá","Brasil","Argentina","Chile","Perú","Colombia","Venezuela","Ecuador","Uruguay","Paraguay","España","Francia","Alemania","Italia",
+         "Reino Unido","Irlanda","Suecia","Noruega","Dinamarca","Finlandia","Rusia","China","Japón","Corea del Sur","India","Australia","Nueva Zelanda","Sudáfrica","Nigeria","Egipto"] * 2
 state = {'mark': None}
 hide = [True] * 64
 count=0
 
-
+#Función que dibuja un cuadrado blanco con contorno negro
 def square(x, y):
     """Draw white square with black outline at (x, y)."""
     up()
@@ -34,17 +35,18 @@ def square(x, y):
         left(90)
     end_fill()
 
-
+#Función que convierte las coordenadas (x, y) 
+#en un índice de casilla en la lista "tiles"
 def index(x, y):
     """Convert (x, y) coordinates to tiles index."""
     return int((x + 200) // 50 + ((y + 200) // 50) * 8)
 
-
+#Función que convierte un índice de casilla en las coordenadas (x, y)
 def xy(count):
     """Convert tiles count to (x, y) coordinates."""
     return (count % 8) * 50 - 200, (count // 8) * 50 - 200
 
-
+#Función que se llama cada vez que el usuario hace clic en una casilla
 def tap(x, y):
     """Update mark and hidden tiles based on tap."""
     global count, tiempoi  # indicamos que estamos usando la variable global 'count'
@@ -69,6 +71,8 @@ def tap(x, y):
         write("GAME OVER. Felicidades!!!", align='center', font=('Arial', 30, 'normal'))        
         input("Presiona Enter para reiniciar...")
 
+#Función que  se encarga de dibujar el tablero 
+#y actualizarlo cada vez que se hace una selección
 def draw():
     """Draw image and tiles."""
     clear()
@@ -86,9 +90,9 @@ def draw():
     if mark is not None and hide[mark]:
         x, y = xy(mark)
         up()
-        goto(x + 25, y)
+        goto(x + 25, y + 20)
         color('black')
-        write(tiles[mark], align='center', font=('Arial', 30, 'normal'))
+        write(tiles[mark], align='center', font=('Arial', 12, 'normal'))
 
     # Mostramos el conteo en la pantalla
     up()

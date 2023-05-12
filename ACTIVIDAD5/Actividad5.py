@@ -18,7 +18,6 @@ car = path('car.gif')
 tiles = list(range(32)) * 2
 state = {'mark': None}
 hide = [True] * 64
-count=0
 
 
 def square(x, y):
@@ -66,6 +65,12 @@ def tap(x, y):
         color('black')
         write("GAME OVER. Felicidades!!!", align='center', font=('Arial', 30, 'normal'))        
         input("Presiona Enter para reiniciar...")
+
+    # Mostramos el conteo en la pantalla
+    up()
+    goto(-180, 180)
+    color('black')
+    write(f'Taps: {count}', font=('Arial', 16, 'normal'))
 
 
 def draw():

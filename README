@@ -2,8 +2,12 @@
 Integrantes:
 Emiliano Herrera Hernández - A01662029  |  Melissa Mireles Rendón - A01379736
 
-Objetivo del Proyecto: Realizar las modificaciones solicitadas a cada código para poder mejorar los 5 videojuego 
-otorgados. También, documentar cada código y realizar una breve explicación de lo programado por cada integrante.
+Objetivo del Proyecto: Realizar las modificaciones solicitadas a cada código para poder mejorar los 5 videojuego otorgados. También, documentar cada código y realizar una breve explicación de lo programado por cada integrante.
+
+INSTRUCCIONES PARA EL USUARIO:
+Para poder correr los códigos de cada juego se debe intalar Python 3 y freegames desde la terminal con los siguientes comandos:
+    - python3 -m pip install freegames
+    - import freegames
 
 
 Actividad 1 - Juego Pintando

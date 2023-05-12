@@ -136,10 +136,10 @@ def move():
             point.move(course)
         else:
             options = [
-                vector(10, 0),
-                vector(-10, 0),
-                vector(0, 10),
-                vector(0, -10),
+                vector(30, 0),
+                vector(-30, 0),
+                vector(0, 30),
+                vector(0, -30),
             ]
             plan = choice(options)
             course.x = plan.x

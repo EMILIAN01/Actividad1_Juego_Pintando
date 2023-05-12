@@ -8,12 +8,12 @@ Exercises
 4. Make the ghosts faster/slower.
 5. Make the ghosts smarter.
 """
-
+#Importa bibliotecas
 from random import choice
 from turtle import *
-
 from freegames import floor, vector
 
+#Se crean objetos "turtle" y vectores.
 state = {'score': 0}
 path = Turtle(visible=False)
 writer = Turtle(visible=False)
@@ -51,7 +51,7 @@ tiles = [
 ]
 # fmt: on
 
-
+#
 def square(x, y):
     """Draw square using path at (x, y)."""
     path.up()

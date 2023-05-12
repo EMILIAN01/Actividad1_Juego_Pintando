@@ -16,7 +16,8 @@ from freegames import path
 
 car = path('car.gif') #Carga la imagen del carro
 #Se definen variables globales
-tiles = list(range(32)) * 2
+tiles = ["Estados Unidos","México","Canadá","Brasil","Argentina","Chile","Perú","Colombia","Venezuela","Ecuador","Uruguay","Paraguay","España","Francia","Alemania","Italia",
+         "Reino Unido","Irlanda","Suecia","Noruega","Dinamarca","Finlandia","Rusia","China","Japón","Corea del Sur","India","Australia","Nueva Zelanda","Sudáfrica","Nigeria","Egipto"] * 2
 state = {'mark': None}
 hide = [True] * 64
 count=0
@@ -89,9 +90,9 @@ def draw():
     if mark is not None and hide[mark]:
         x, y = xy(mark)
         up()
-        goto(x + 25, y)
+        goto(x + 25, y + 20)
         color('black')
-        write(tiles[mark], align='center', font=('Arial', 30, 'normal'))
+        write(tiles[mark], align='center', font=('Arial', 12, 'normal'))
 
     # Mostramos el conteo en la pantalla
     up()

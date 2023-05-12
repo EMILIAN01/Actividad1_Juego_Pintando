@@ -45,7 +45,7 @@ def move_food():
     newfood.move(move)
     if inside(newfood):
         food.move(move)
-    ontimer(move_food,200)
+    ontimer(move_food,400)
 
 #Función que mueve la serpiente y la comida
 def move():

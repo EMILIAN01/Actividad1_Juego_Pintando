@@ -27,6 +27,7 @@ ghosts = [
 ]
 
 # fmt: off
+#Crea una lista que representa el laberinto del juego
 tiles = [
     0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
     0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 0,
@@ -51,7 +52,7 @@ tiles = [
 ]
 # fmt: on
 
-#
+#Función que dibuja el cuadrado
 def square(x, y):
     """Draw square using path at (x, y)."""
     path.up()
@@ -65,7 +66,7 @@ def square(x, y):
 
     path.end_fill()
 
-
+#Función que realiza el margen
 def offset(point):
     """Return offset of point in tiles."""
     x = (floor(point.x, 20) + 200) / 20
@@ -73,7 +74,7 @@ def offset(point):
     index = int(x + y * 20)
     return index
 
-
+#Función que define las coordenadas
 def valid(point):
     """Return True if point is valid in tiles."""
     index = offset(point)
@@ -88,7 +89,7 @@ def valid(point):
 
     return point.x % 20 == 0 or point.y % 20 == 0
 
-
+#Función que dibuja el tablero
 def world():
     """Draw world using path."""
     bgcolor('black')
@@ -107,7 +108,7 @@ def world():
                 path.goto(x + 10, y + 10)
                 path.dot(2, 'white')
 
-
+#Función que mueve las figuras del videojuego
 def move():
     """Move pacman and all ghosts."""
     writer.undo()

@@ -35,7 +35,7 @@ def inside(head):
     """Return True if head inside boundaries."""
     return -200 < head.x < 190 and -200 < head.y < 190
 
-#comida 
+#Mueve de lugar la comida 
 def move_food():
     """Move food one step at a time."""
     newfood = food.copy()

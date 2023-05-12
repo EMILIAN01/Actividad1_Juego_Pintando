@@ -69,13 +69,6 @@ def tap(x, y):
         write("GAME OVER. Felicidades!!!", align='center', font=('Arial', 30, 'normal'))        
         input("Presiona Enter para reiniciar...")
 
-    # Mostramos el conteo en la pantalla
-    up()
-    goto(-180, 180)
-    color('black')
-    write(f'Taps: {count}', font=('Arial', 16, 'normal'))
-
-
 def draw():
     """Draw image and tiles."""
     clear()

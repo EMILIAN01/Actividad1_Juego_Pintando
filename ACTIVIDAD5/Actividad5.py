@@ -11,8 +11,9 @@ Exercises:
 
 from random import *
 from turtle import *
-
+from time import time
 from freegames import path
+
 
 car = path('car.gif')
 tiles = list(range(32)) * 2
@@ -46,7 +47,7 @@ def xy(count):
 
 def tap(x, y):
     """Update mark and hidden tiles based on tap."""
-    global count  # indicamos que estamos usando la variable global 'count'
+    global count, tiempoi  # indicamos que estamos usando la variable global 'count'
     count += 1  # aumentamos el contador en 1 en cada llamada
     spot = index(x, y)
     mark = state['mark']
@@ -60,6 +61,7 @@ def tap(x, y):
 
     #Se verifica que si todas las casillas están visibles, 
     if all (not box for box in hide):
+
         clear()
         up()
         goto(0,0)
